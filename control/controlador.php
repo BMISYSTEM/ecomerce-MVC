@@ -9,7 +9,7 @@ class controlador{
         $propiedades = propiedad::get(3);
         $resultado = null;
         $router->render('propiedades/admin',[
-            'propiedades' => $propiedades,
+            'propiedades' => $propiedades, 
             'resultado' => $resultado
         ]);
     }
