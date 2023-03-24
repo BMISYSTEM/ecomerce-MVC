@@ -7,8 +7,8 @@
         <p><?php echo s($mensaje)?></p>
     <?php }
     }?> 
-    <a class='boton boton-inline' href="/admin/propiedades/crear.php" >Nueva propiedad</a>
-    <a class='boton-amarillo-block' href="/admin/vendedores/crear.php" >Nuevo vendedor</a>
+    <a class='boton boton-inline' href="/admin/propiedades/crear" >Nueva propiedad</a>
+    <a class='boton-amarillo-block' href="/admin/vendedores/crear" >Nuevo vendedor</a>
         <h2>Propiedades</h2>
     <table class="propiedades">
         <thead>
@@ -31,10 +31,38 @@
                             <input type="hidden" name="tipo" value = "propiedad">
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
-                        <a href="/admin/propiedades/actualizar.php?id=<?php echo $propiedades->id;?>" class="boton-verde-block">Actualizar</a>
+                        <a href="/admin/propiedades/actualizar?id=<?php echo $propiedades->id;?>" class="boton-verde-block">Actualizar</a>
                     </td>
                 </tr>
             <?php endforeach;?>
+        </tbody>
+    </table>
+    <h2>Vendedores</h2>
+    <table class="propiedades">
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+            <th>acciones</th>
+        </thead>
+        <tbody>
+            <?php foreach($vendedores as $vendedor){?>
+                <tr>
+                    <td><?php echo $vendedor->id;?></td>
+                    <td><?php echo $vendedor->nombre;?></td>
+                    <td><?php echo $vendedor->apellido;?></td>  
+                    <td>#<?php echo $vendedor->telefono;?></td>  
+                    <td>
+                        <form method="POST" class="W-100" action="/admin/vendedores/eliminar">
+                            <input type="hidden" name="id" value = "<?php echo $vendedor->id;?>">
+                            <input type="hidden" name="tipo" value = "vendedor">
+                            <input type="submit" class="boton-rojo-block" value="Eliminar">
+                        </form>
+                        <a href="/admin/vendedores/actualizar?id=<?php echo $vendedor->id;?>" class="boton-verde-block">Actualizar</a>
+                    </td>
+                </tr>
+            <?php };?>
         </tbody>
     </table>
 </main>

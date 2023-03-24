@@ -1,7 +1,7 @@
 <?php
 define('TEMPLATE_URL',__DIR__ .'/template');
 define('FUNCIONES_URL',__DIR__.'funciones.php');
-define('CARPETA_IMAGENES',__DIR__.'/../imagenes/');
+define('CARPETA_IMAGENES', $_SERVER['DOCUMENT_ROOT'] . "/imagenes/");
 function incluirtemplate(string $template,bool $inicio = false){
     include TEMPLATE_URL . "/${template}.php";
 }
@@ -40,4 +40,15 @@ function mostrar_notificacion($codigo){
             break;
     }
     return $mensaje;
+}
+
+//validar url
+
+ function urlcomprobation(string $url){
+    $id = $_GET['id'];
+    $id = filter_var($id,FILTER_VALIDATE_INT);
+    if(!$id){
+        header("location: ${url}");
+    }
+    return $id;
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienes raizes</title>
-    <link rel="stylesheet" href="../build/css/app.css">
+    <link rel="stylesheet" href="build/css/app.css">
 
 </head>
 <body>
@@ -21,10 +21,10 @@
                 <div class="derecha">
                     <img class="darkmode" src="/build/img/dark-mode.svg" alt="imagen negro">
                     <nav class="navegacion">
-                        <a href="nosotros.php">Nosotros</a>
-                        <a href="anuncios.php">Anuncios</a>
-                        <a href="blog.php">Blog</a>
-                        <a href="contacto.php">Contacto</a>
+                        <a href="/nosotros">Nosotros</a>
+                        <a href="/anuncios">Anuncios</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contacto">Contacto</a>
                     </nav>
                 </div>
                 
@@ -49,8 +49,6 @@
         </div>
         <p class="copyrig">todos los derechos reservados&copy;</p>
     </footer>
-
-
-    <script src="../build/js/bundle.min.js" ></script>
+    <script src="build/js/bundle.min.js" ></script>
 </body>
 </html>
