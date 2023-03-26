@@ -4,6 +4,7 @@ use router\Router;
 use controllers\controlador;
 use controllers\controlVendedor;
 use controllers\paginascontrol;
+use controllers\login;
 
 $router = new Router();
 //se define las rutas de aceso y su funcion propiedades
@@ -27,4 +28,8 @@ $router->get('/anuncio',[paginascontrol::class,'anuncio']);
 $router->get('/blog',[paginascontrol::class,'blog']);
 $router->get('/contacto',[paginascontrol::class,'contacto']);
 $router->post('/contacto',[paginascontrol::class,'contacto']);
+//lOGIN
+$router->get('/login',[login::class,'login']);
+$router->post('/login',[login::class,'login']);
+$router->get('/logout',[login::class,'logaut']);
 $router->comprobar_rutas(); 

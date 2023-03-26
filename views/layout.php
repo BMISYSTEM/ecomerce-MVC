@@ -1,3 +1,9 @@
+<?php 
+if(!isset($_SESSION)){
+    session_start();
+}
+$autenticado = $_SESSION['login'] ?? false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +11,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienes raizes</title>
-    <link rel="stylesheet" href="build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css">
 
 </head>
 <body>
+    <?php echo $pass;?>
     <header class="header <?php  echo $inicio ? 'inicio' : ''?>">
         <div class="contenedor contenido-header">
             <div class="barra">
@@ -25,6 +32,11 @@
                         <a href="/anuncios">Anuncios</a>
                         <a href="/blog">Blog</a>
                         <a href="/contacto">Contacto</a>
+                        <?php if($autenticado){?>
+                            <a href="/logout">Cerrar seccion</a>
+                            <?php } else {?>
+                                <a href="/login">Iniciar seccion</a>
+                        <?php }?>
                     </nav>
                 </div>
                 

@@ -11,6 +11,15 @@ class Router{
         $this->rutasPost[$url] = $fn;
     }
     public function comprobar_rutas(){
+        session_start();
+        $aut = $_SESSION['login'];
+        //arreglo de rutas protegidas
+        $rutas_protegidas = ['/admin',
+                            '/admin/propiedades/crear',
+                            '/admin/propiedades/actualizar',
+                            '/admin/vendedores/crear',
+                            '/admin/vendedores/actualizar',
+                            '/admin/vendedores/eliminar'];
         // valida la ruta a la cual se esta ingresando
         $urlServert = $_SERVER['PATH_INFO'] ?? '/';
         
@@ -24,6 +33,9 @@ class Router{
             
         }else{
             $fn =$this->rutasPost[$urlServert] ?? null;
+        }
+        if(in_array($urlServert,$rutas_protegidas) && !$aut){
+            header('Location: /');
         }
         if($fn){
             call_user_func($fn,$this);
